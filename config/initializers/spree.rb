@@ -7,7 +7,7 @@ Spree.load_defaults '3.2.3'
 Spree.config do |config|
   # Core:
   # Default currency for new sites
-  config.currency = "USD"
+  config.currency = "EUR"
 
   # from address for transactional emails
   config.mails_from = "store@example.com"

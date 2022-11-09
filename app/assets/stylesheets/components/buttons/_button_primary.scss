@@ -1,5 +1,5 @@
 .button-primary {
-  background: $color-accent;
+  background: var(--brand-brown-sugar);
   border: 0;
   border-radius: 2px;
   color: $color-copy-bright;
@@ -11,8 +11,8 @@
 
   &--bordered {
     background: none;
-    border: solid 1px $color-accent;
-    color: $color-accent;
+    border: solid 1px var(--brand-brown-sugar);
+    color: var(--brand-brown-sugar);
   }
 
   &--full-width {
