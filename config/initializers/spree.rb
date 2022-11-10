@@ -10,7 +10,7 @@ Spree.config do |config|
   config.currency = "EUR"
 
   # from address for transactional emails
-  config.mails_from = "store@example.com"
+  config.mails_from = "infinibx@gmail.com"
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
@@ -34,7 +34,7 @@ Spree.config do |config|
   # Admin:
 
   # Custom logo for the admin
-  # config.admin_interface_logo = "logo/solidus.svg"
+  config.admin_interface_logo = "logo-gray.png"
 
   # Gateway credentials can be configured statically here and referenced from
   # the admin. They can also be fully configured from the admin.

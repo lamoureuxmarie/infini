@@ -1,7 +1,8 @@
 .hero {
-  background: $color-background-dark;
   color: $color-copy-bright;
   padding: 10rem 0;
+  background-size: cover;
+  background-position: center;
 
   &__container {
     @extend %section-spacings;
