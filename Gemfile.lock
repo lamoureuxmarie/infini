@@ -330,9 +330,6 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    routing-filter (0.6.3)
-      actionpack (>= 4.2)
-      activesupport (>= 4.2)
     rspec-activemodel-mocks (1.1.0)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
@@ -545,7 +542,6 @@ DEPENDENCIES
   rails-controller-testing (~> 1.0.5)
   rails-i18n (~> 7.0.6)
   redis (~> 4.0)
-  routing-filter (~> 0.6.0)
   rspec-activemodel-mocks (~> 1.1.0)
   rspec-rails
   rubocop (~> 1.0)
