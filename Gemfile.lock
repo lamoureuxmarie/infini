@@ -173,7 +173,7 @@ GEM
     ffi (1.15.5)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
-    friendly_id (5.5.0)
+    friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -258,6 +258,8 @@ GEM
     netrc (0.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.9-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
     omnes (0.2.2)
     orm_adapter (0.5.0)
@@ -349,7 +351,7 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
-    rubocop (1.39.0)
+    rubocop (1.38.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
@@ -361,7 +363,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.23.0)
       parser (>= 3.1.1.0)
-    rubocop-performance (1.15.1)
+    rubocop-performance (1.15.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.17.2)
@@ -512,6 +514,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
+  x86_64-linux
 
 DEPENDENCIES
   apparition (~> 0.6.0)!
@@ -546,13 +549,13 @@ DEPENDENCIES
   rubocop-rails (~> 2.3)
   rubocop-rspec (~> 2.0)
   selenium-webdriver
-  solidus_api (~> 3.2.3)
+  solidus_api (~> 3.2)
   solidus_auth_devise
-  solidus_backend (~> 3.2.3)
-  solidus_core (~> 3.2.3)
+  solidus_backend (~> 3.2)
+  solidus_core (~> 3.2)
   solidus_i18n (~> 2.0)
   solidus_paypal_commerce_platform
-  solidus_sample (~> 3.2.3)
+  solidus_sample (~> 3.2)
   solidus_support
   sprockets-rails
   stimulus-rails
