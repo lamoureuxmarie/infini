@@ -115,6 +115,8 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 # Active Storage
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
+# gem 'shrine'
+# gem 'aws-sdk-s3'
 
 # Multilingual store
 gem 'solidus_i18n', '~> 2.0'
