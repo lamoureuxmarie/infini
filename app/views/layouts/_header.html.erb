@@ -2,19 +2,19 @@
   <div class="header__secondary-navigation">
     <%= render 'layouts/top_bar', taxons: taxons, taxon: taxon %>
   </div>
-  <div class="header__primary-navigation">
+  <%# <div class="header__primary-navigation">
     <div class="category-navigation">
       <% categories = taxonomies.first %>
 
-      <nav class="categories">
+      <%# <nav class="categories">
         <% cache [I18n.locale, categories, taxon] do %>
-          <%= render(TaxonsTreeComponent.new(
+          <%# <%= render(TaxonsTreeComponent.new(
             root_taxon: categories.root,
             current_taxon: taxon,
             max_level: 1,
             base_class: 'categories')) if categories %>
-        <% end %>
-      </nav>
-    </div>
-  </div>
+        <%# <% end %>
+      <%# </nav> %>
+    <%# </div> %>
+  <%# </div> %>
 </header>
