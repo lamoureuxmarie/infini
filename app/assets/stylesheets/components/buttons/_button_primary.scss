@@ -1,5 +1,5 @@
 .button-primary {
-  background: var(--brand-brown-sugar);
+  background: var(--brand-mauve);
   border: 0;
   border-radius: 2px;
   color: $color-copy-bright;
@@ -11,8 +11,8 @@
 
   &--bordered {
     background: none;
-    border: solid 1px var(--brand-brown-sugar);
-    color: var(--brand-brown-sugar);
+    border: solid 1px var(--brand-mauve);
+    color: var(--brand-mauve);
   }
 
   &--full-width {
