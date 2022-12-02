@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ImageComponent < ViewComponent::Base
   attr_reader :image, :size, :classes, :options
 
