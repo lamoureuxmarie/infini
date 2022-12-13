@@ -1,8 +1,6 @@
 class NewslettersController < ApplicationController
-  skip_before_action :authenticate_user!
-
   def create
-    @newsletter = Newsletter.create(newsletter_params)
+    @newsletter = Newsletter.new
     if @newsletter.save
       redirect_to root_path
     else
