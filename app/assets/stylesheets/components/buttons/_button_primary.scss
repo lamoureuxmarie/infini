@@ -1,5 +1,5 @@
 .button-primary {
-  background: var(--brand-mauve);
+  background: var(--brand-pink);
   border: 0;
   border-radius: 2px;
   color: $color-copy-bright;
@@ -11,8 +11,8 @@
 
   &--bordered {
     background: none;
-    border: solid 1px var(--brand-mauve);
-    color: var(--brand-mauve);
+    border: solid 1px var(--brand-pink);
+    color: var(--brand-pink);
   }
 
   &--full-width {
