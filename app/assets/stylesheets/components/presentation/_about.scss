@@ -1,9 +1,14 @@
 .about-section {
   background-color: #C57C07;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
+  // flex-wrap: wrap;
 }
+
+// .about-img {
+//   flex: 50%;
+// }
 
 .about-img img {
   width: 550px;
@@ -16,6 +21,7 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 80px;
+  // flex: 50%;
 }
 
 .about-text h3 {
