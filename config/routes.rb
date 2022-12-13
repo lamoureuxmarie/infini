@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'newsletters/create'
   # filter :locale
   # This line mounts Solidus's routes at the root of your application.
   # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
 
 mount SolidusPaypalCommercePlatform::Engine, at: '/solidus_paypal_commerce_platform'
   root to: 'home#index'
+
+  resources :newsletters
 
   devise_for(:user, {
     class_name: 'Spree::User',
