@@ -1,0 +1,11 @@
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.newsletter-form input {
+  height: 3.8rem;
+  padding: 0 2rem;
+}

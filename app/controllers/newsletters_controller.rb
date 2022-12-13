@@ -1,8 +1,8 @@
 class NewslettersController < ApplicationController
   def create
-    @newsletter = Newsletter.new
+    @newsletter = Newsletter.create(newsletter_params)
     if @newsletter.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Thank you! You subscribed successfully"
     else
       render :new, notice: "Oops. Something went wrong..."
     end

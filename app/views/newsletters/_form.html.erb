@@ -1,8 +1,11 @@
-<h3>Bist du bereit, der Community beizutreten?</h3>
-<p>Erhalte 10% Rabatt auf deine erste Box</p>
-
-<%= form_for newsletter do |f| %>
-  <%= f.text_field :name, placeholder:'Name' %>
-  <%= f.email_field :email, placeholder:'Email' %>
-  <%= f.submit %>
-<% end %>
+<div class='newsletter'>
+  <h3>Bist du bereit, der Community beizutreten?</h3>
+  <p>Erhalte 10% Rabatt auf deine erste Box</p>
+  <div class='newsletter-form'>
+      <%= form_for newsletter do |f| %>
+        <%= f.text_field :name, placeholder:'Name' %>
+        <%= f.email_field :email, placeholder:'Email' %>
+        <%= f.submit 'Ich bin dabei', class: 'button-primary' %>
+      <% end %>
+    </div>
+</div>
