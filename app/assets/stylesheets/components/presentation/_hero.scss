@@ -8,4 +8,15 @@
     @extend %section-spacings;
     display: flex;
   }
+
+  .header-text {
+    text-align: center;
+    position: relative;
+    top: -350px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+
+  .sub-header {
+    font-size: 2rem;
+  }
 }

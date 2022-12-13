@@ -1,8 +1,10 @@
 <%= render 'hero' %>
 <%= render 'newsletters/form', newsletter: Newsletter.new %>
 
-<article>
-  <% cache(cache_key_for_products) do %>
-    <%= render 'products/products', products: @products %>
-  <% end %>
-</article>
+<%# <article> %>
+  <%# <% cache(cache_key_for_products) do %>
+    <%# <%= render 'products/products', products: @products %>
+  <%# <% end %>
+<%# </article> %>
+
+<%= render 'about' %>

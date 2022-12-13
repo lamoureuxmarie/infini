@@ -1,0 +1,40 @@
+.about-section {
+  background-color: #C57C07;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-img img {
+  width: 550px;
+  border-radius: 5px 150px;
+  opacity: 0.92;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 80px;
+}
+
+.about-text h3 {
+  font-size: 10rem;
+  font-family: var(--logo-font);
+  color: var(--brand-yellow);
+  opacity: 0.6;
+}
+
+.about-text p {
+  color: #fff;
+  z-index: 1;
+}
+
+.star {
+  font-size: 25rem;
+  color: var(--brand-yellow);
+  position: relative;
+  top: 15rem;
+  left: -10rem;
+  opacity: 0.6;
+}
