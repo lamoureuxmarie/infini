@@ -21,8 +21,8 @@ html {
 }
 
 body {
-  color: $color-copy;
-  font-family: $font-family-base;
+  color: var(--brand-black);
+  font-family: var(--body-font);
   font-size: $font-size-base;
   font-weight: $font-weight-normal;
   line-height: $line-height-base;
@@ -54,4 +54,13 @@ legend {
 code,
 pre {
   font-family: $font-family-monospace;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.container {
+  padding-right: 100px;
+  padding-left: 100px;
 }
