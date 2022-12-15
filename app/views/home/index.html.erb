@@ -1,48 +1,5 @@
 <%= render 'hero' %>
-
-<div class="boxes d-flex">
-  <div class="box small-card  seasonal-box">
-    <h4>Mom Voyage seasonal box</h4>
-    <small>
-      For practical moms
-    </small>
-    <p>
-      ❊ 6 clothing items for the whole season (4 months)
-      <br>
-      ❊ 2 self-care items from local partnerships per box
-      <br>
-      ❊ Curated according to your style and lifestyle
-    </p>
-    <button class="button-primary">I want it</button>
-  </div>
-  <div class="box monthly-box">
-    <h4>Stylish & Sustainable monthly box</h4>
-    <small>
-      For eco-conscious fashionistas
-    </small>
-    <p>
-      ❊ 2 clothing items per month
-      <br>
-      ❊ 1 self-care item from local partnerships per box
-      <br>
-      ❊ Curated according to your style and lifestyle
-    </p>
-    <button class="button-primary">I want it</button>
-  </div>
-  <div class="box small-card custom-box">
-    <h4>Custom box</h4>
-    <small>
-      For moms who like to decide
-    </small>
-    <p>
-      ❊ Make your own selection of clothes
-      <br>
-      ❊ Select your susbcription plan (seasonal or monthly)
-    </p>
-    <button class="button-primary">I want it</button>
-  </div>
-</div>
-
+<%= render 'boxes' %>
 <%= render 'steps' %>
 <%= render 'newsletters/form', newsletter: Newsletter.new %>
 <%= render 'about' %>
