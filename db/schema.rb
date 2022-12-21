@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_13_080054) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_21_112767) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +91,78 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_080054) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.integer "paypal_funding_source"
+  end
+
+  create_table "solidus_subscriptions_installment_details", id: :serial, force: :cascade do |t|
+    t.integer "installment_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.boolean "success"
+    t.string "message"
+    t.integer "order_id"
+    t.index ["installment_id"], name: "index_installment_details_on_installment_id"
+    t.index ["order_id"], name: "index_solidus_subscriptions_installment_details_on_order_id"
+  end
+
+  create_table "solidus_subscriptions_installments", id: :serial, force: :cascade do |t|
+    t.integer "subscription_id", null: false
+    t.date "actionable_date"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["subscription_id"], name: "index_solidus_subscriptions_installments_on_subscription_id"
+  end
+
+  create_table "solidus_subscriptions_line_items", id: :serial, force: :cascade do |t|
+    t.integer "spree_line_item_id"
+    t.integer "subscription_id"
+    t.integer "quantity", null: false
+    t.integer "subscribable_id", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.integer "interval_units"
+    t.integer "interval_length"
+    t.date "end_date"
+    t.index ["spree_line_item_id"], name: "index_solidus_subscriptions_line_items_on_spree_line_item_id"
+    t.index ["subscribable_id"], name: "index_solidus_subscriptions_line_items_on_subscribable_id"
+    t.index ["subscription_id"], name: "index_line_items_on_subscription_id"
+    t.index ["subscription_id"], name: "index_solidus_subscriptions_line_items_on_subscription_id"
+  end
+
+  create_table "solidus_subscriptions_subscription_events", force: :cascade do |t|
+    t.integer "subscription_id", null: false
+    t.string "event_type", null: false
+    t.jsonb "details", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["subscription_id"], name: "idx_solidus_subscription_events_on_subscription_id"
+  end
+
+  create_table "solidus_subscriptions_subscriptions", id: :serial, force: :cascade do |t|
+    t.date "actionable_date"
+    t.string "state"
+    t.integer "user_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.integer "skip_count", default: 0, null: false
+    t.integer "successive_skip_count", default: 0, null: false
+    t.integer "store_id"
+    t.integer "shipping_address_id"
+    t.integer "interval_length"
+    t.integer "interval_units"
+    t.datetime "end_date", precision: nil
+    t.integer "billing_address_id"
+    t.string "payment_source_type"
+    t.integer "payment_source_id"
+    t.integer "payment_method_id"
+    t.string "guest_token"
+    t.string "currency"
+    t.boolean "paused", default: false
+    t.index ["billing_address_id"], name: "index_subscription_billing_address_id"
+    t.index ["guest_token"], name: "index_solidus_subscriptions_subscriptions_on_guest_token", unique: true
+    t.index ["payment_method_id"], name: "index_subscription_payment_method_id"
+    t.index ["shipping_address_id"], name: "index_subscription_shipping_address_id"
+    t.index ["store_id"], name: "index_solidus_subscriptions_subscriptions_on_store_id"
+    t.index ["user_id"], name: "index_solidus_subscriptions_subscriptions_on_user_id"
   end
 
   create_table "spree_addresses", id: :serial, force: :cascade do |t|
@@ -360,6 +432,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_080054) do
     t.integer "store_id"
     t.string "approver_name"
     t.boolean "frontend_viewable", default: true, null: false
+    t.boolean "subscription_order", default: false, null: false
+    t.integer "subscription_id"
     t.index ["approver_id"], name: "index_spree_orders_on_approver_id"
     t.index ["bill_address_id"], name: "index_spree_orders_on_bill_address_id"
     t.index ["completed_at"], name: "index_spree_orders_on_completed_at"
@@ -367,6 +441,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_080054) do
     t.index ["guest_token"], name: "index_spree_orders_on_guest_token"
     t.index ["number"], name: "index_spree_orders_on_number"
     t.index ["ship_address_id"], name: "index_spree_orders_on_ship_address_id"
+    t.index ["subscription_id"], name: "index_spree_orders_on_subscription_id"
     t.index ["user_id", "created_by_id"], name: "index_spree_orders_on_user_id_and_created_by_id"
     t.index ["user_id"], name: "index_spree_orders_on_user_id"
   end
@@ -1202,6 +1277,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_080054) do
     t.integer "tax_category_id"
     t.datetime "updated_at"
     t.datetime "created_at"
+    t.boolean "subscribable", default: false
     t.index ["position"], name: "index_spree_variants_on_position"
     t.index ["product_id"], name: "index_spree_variants_on_product_id"
     t.index ["sku"], name: "index_spree_variants_on_sku"
@@ -1240,6 +1316,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_080054) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "solidus_subscriptions_installment_details", "solidus_subscriptions_installments", column: "installment_id"
+  add_foreign_key "solidus_subscriptions_installment_details", "spree_orders", column: "order_id"
+  add_foreign_key "solidus_subscriptions_installments", "solidus_subscriptions_subscriptions", column: "subscription_id"
+  add_foreign_key "solidus_subscriptions_line_items", "solidus_subscriptions_subscriptions", column: "subscription_id"
+  add_foreign_key "solidus_subscriptions_line_items", "spree_line_items"
+  add_foreign_key "solidus_subscriptions_subscription_events", "solidus_subscriptions_subscriptions", column: "subscription_id"
+  add_foreign_key "solidus_subscriptions_subscriptions", "spree_addresses", column: "billing_address_id"
+  add_foreign_key "solidus_subscriptions_subscriptions", "spree_addresses", column: "shipping_address_id"
+  add_foreign_key "solidus_subscriptions_subscriptions", "spree_payment_methods", column: "payment_method_id"
+  add_foreign_key "solidus_subscriptions_subscriptions", "spree_stores", column: "store_id"
+  add_foreign_key "spree_orders", "solidus_subscriptions_subscriptions", column: "subscription_id"
   add_foreign_key "spree_promotion_code_batches", "spree_promotions", column: "promotion_id"
   add_foreign_key "spree_promotion_codes", "spree_promotion_code_batches", column: "promotion_code_batch_id"
   add_foreign_key "spree_tax_rate_tax_categories", "spree_tax_categories", column: "tax_category_id"

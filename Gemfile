@@ -114,8 +114,6 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
 # Active Storage
 gem "dotenv-rails", groups: [:development, :test]
-# gem "cloudinary"
-# gem 'shrine'
 gem 'aws-sdk-s3'
 gem "image_processing"
 
@@ -124,4 +122,5 @@ gem 'solidus_i18n', '~> 2.0'
 gem 'rails-i18n', '~> 7.0.6'
 gem 'kaminari-i18n', '~> 0.5.0'
 
-# gem 'routing-filter', '~> 0.6.0'
+# Subscription
+gem 'solidus_subscriptions', github: 'solidusio-contrib/solidus_subscriptions'

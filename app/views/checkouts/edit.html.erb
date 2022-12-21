@@ -7,7 +7,8 @@
       <%= render "checkout_step", order: @order %>
     </section>
 
-    <% if @order.state != "confirm" %>
+    <% if @order.state != "confirm" && if Spree::Config[:allow_guest_checkout] && current_order.subscription_line_items.empty? %>
+    <%# spree/checkout/registration.html.erb %>
       <div class="checkout__summary">
         <%= render "checkout_summary", order: @order %>
       </div>
