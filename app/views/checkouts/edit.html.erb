@@ -7,11 +7,13 @@
       <%= render "checkout_step", order: @order %>
     </section>
 
-    <% if @order.state != "confirm" && if Spree::Config[:allow_guest_checkout] && current_order.subscription_line_items.empty? %>
+    <% if @order.state != "confirm" %>
     <%# spree/checkout/registration.html.erb %>
-      <div class="checkout__summary">
-        <%= render "checkout_summary", order: @order %>
-      </div>
+      <% if Spree::Config[:allow_guest_checkout] && current_order.subscription_line_items.empty? %>
+        <div class="checkout__summary">
+          <%= render "checkout_summary", order: @order %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </article>
