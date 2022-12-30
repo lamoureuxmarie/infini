@@ -8,9 +8,12 @@
     </section>
 
     <% if @order.state != "confirm" %>
-      <div class="checkout__summary">
-        <%= render "checkout_summary", order: @order %>
-      </div>
+    <%# spree/checkout/registration.html.erb %>
+      <% if Spree::Config[:allow_guest_checkout] && current_order.subscription_line_items.empty? %>
+        <div class="checkout__summary">
+          <%= render "checkout_summary", order: @order %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </article>

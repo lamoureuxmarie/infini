@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/solidusio-contrib/solidus_subscriptions.git
+  revision: 26958b34d0819848c467fe5f0cfbdfec3efc7bd7
+  specs:
+    solidus_subscriptions (1.0.0)
+      deface
+      httparty (~> 0.18)
+      i18n
+      solidus_core (>= 2.11, < 4)
+      solidus_support (~> 0.9)
+      state_machines
+
+GIT
   remote: https://github.com/twalpole/apparition.git
   revision: ca86be4d54af835d531dbcd2b86e7b2c77f85f34
   specs:
@@ -191,6 +203,9 @@ GEM
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
+    httparty (0.20.0)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -252,6 +267,7 @@ GEM
     money (6.16.0)
       i18n (>= 0.6.4, <= 2)
     msgpack (1.6.0)
+    multi_xml (0.6.0)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -556,6 +572,7 @@ DEPENDENCIES
   solidus_i18n (~> 2.0)
   solidus_paypal_commerce_platform
   solidus_sample (~> 3.2)
+  solidus_subscriptions!
   solidus_support
   sprockets-rails
   stimulus-rails

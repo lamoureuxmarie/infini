@@ -52,7 +52,7 @@ RSpec.describe 'Cart Line Items', type: :request do
       end
 
       context "when quantity is empty string" do
-        it "populates order with 1 of given variant" do
+        it "s order with 1 of given variant" do
           expect do
             post cart_line_items_path, params: { variant_id: variant.id, quantity: '' }
           end.to change { Spree::Order.count }.by(1)
