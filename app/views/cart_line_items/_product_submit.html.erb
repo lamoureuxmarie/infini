@@ -3,9 +3,10 @@
 
   <div class="horizontal-input-group">
     <div class="horizontal-input-group__input">
-      <div class="text-input">
+      <%# <div class="text-input">
         <%= text_field_tag :quantity, 1, type: :number, min: 1 %>
-      </div>
+      <%# </div> %>
+      <%= render 'cart_line_items/subscription_line_item_fields', product: product %>
     </div>
     <div class="horizontal-input-group__action">
       <%= button_tag(

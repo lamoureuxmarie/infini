@@ -124,3 +124,6 @@ gem 'kaminari-i18n', '~> 0.5.0'
 
 # Subscription
 gem 'solidus_subscriptions', github: 'solidusio-contrib/solidus_subscriptions'
+
+# Debug
+gem "pry"

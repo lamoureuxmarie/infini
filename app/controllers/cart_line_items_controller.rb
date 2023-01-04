@@ -7,6 +7,12 @@ class CartLineItemsController < StoreController
 
   before_action :store_guest_token
 
+  after_action(
+    :handle_subscription_line_items,
+    only: :create,
+    if: -> { params[:subscription_line_item] }
+  )
+
   # Adds a new item to the order (creating a new order if none already exists)
   def create
     @order = current_order(create_order_if_necessary: true)
@@ -43,5 +49,11 @@ class CartLineItemsController < StoreController
 
   def store_guest_token
     cookies.permanent.signed[:guest_token] = params[:token] if params[:token]
+  end
+
+  def handle_subscription_line_items
+    # you can put a binding.pry here to debug and see if this callback gets called
+    line_item = @current_order.line_items.find_by(variant_id: params[:variant_id])
+    create_subscription_line_item(line_item)
   end
 end

@@ -1,9 +1,8 @@
-<%= content_tag :h3, t('.subscription_fields') %>
 <%= fields_for :'subscription_line_item', SolidusSubscriptions::LineItem.new do |ff| %>
   <div>
     <%= ff.label :quantity, t('.quantity') %>
     <%= ff.number_field :quantity %>
-    <%= ff.label :quantity, t('.quantity_suffix') %>
+    <%# <%= ff.label :quantity, t('.quantity_suffix') %>
   </div>
 
   <div>
