@@ -2,6 +2,7 @@
 
 class CartLineItemsController < StoreController
   helper 'spree/products', 'orders'
+  include SolidusSubscriptions::SubscriptionLineItemBuilder
 
   respond_to :html
 
@@ -45,6 +46,9 @@ class CartLineItemsController < StoreController
     end
   end
 
+  # def create_subscription_line_item(line_item)
+  # end
+
   private
 
   def store_guest_token
@@ -52,7 +56,6 @@ class CartLineItemsController < StoreController
   end
 
   def handle_subscription_line_items
-    # you can put a binding.pry here to debug and see if this callback gets called
     line_item = @current_order.line_items.find_by(variant_id: params[:variant_id])
     create_subscription_line_item(line_item)
   end
