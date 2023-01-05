@@ -21,6 +21,7 @@ class CartLineItemsController < StoreController
 
     variant  = Spree::Variant.find(params[:variant_id])
     quantity = params[:quantity].present? ? params[:quantity].to_i : 1
+    # need to pass all 4 parameters
 
     # 2,147,483,647 is crazy. See issue https://github.com/spree/spree/issues/2695.
     if !quantity.between?(1, 2_147_483_647)
@@ -56,7 +57,7 @@ class CartLineItemsController < StoreController
   end
 
   def handle_subscription_line_items
-    line_item = @current_order.line_items.find_by(variant_id: params[:variant_id])
+    line_item = @current_order.line_items.find_by(id: params[:variant_id])
     create_subscription_line_item(line_item)
   end
 end

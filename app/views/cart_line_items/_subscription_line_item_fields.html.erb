@@ -16,7 +16,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function(e) {
-    var cartForm = document.querySelector('#cart-form form');
+    var cartForm = document.querySelector('.product-page__info form');
     cartForm.addEventListener('submit', function(e) {
       var quantityInput = e.target.querySelector('[name*="quantity"]');
       var subscriptionQuantityInput = e.target.querySelector('[name*="subscribable_id"]');
