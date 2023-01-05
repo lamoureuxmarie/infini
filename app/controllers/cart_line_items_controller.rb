@@ -2,10 +2,17 @@
 
 class CartLineItemsController < StoreController
   helper 'spree/products', 'orders'
+  include SolidusSubscriptions::SubscriptionLineItemBuilder
 
   respond_to :html
 
   before_action :store_guest_token
+
+  after_action(
+    :handle_subscription_line_items,
+    only: :create,
+    if: -> { params[:subscription_line_item] }
+  )
 
   # Adds a new item to the order (creating a new order if none already exists)
   def create
@@ -39,9 +46,17 @@ class CartLineItemsController < StoreController
     end
   end
 
+  # def create_subscription_line_item(line_item)
+  # end
+
   private
 
   def store_guest_token
     cookies.permanent.signed[:guest_token] = params[:token] if params[:token]
+  end
+
+  def handle_subscription_line_items
+    line_item = @current_order.line_items.find_by(variant_id: params[:variant_id])
+    create_subscription_line_item(line_item)
   end
 end

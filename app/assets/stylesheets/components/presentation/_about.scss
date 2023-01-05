@@ -27,9 +27,9 @@
 }
 
 .about-text h3 {
-  font-size: 8rem;
-  font-family: var(--logo-font);
-  color: var(--brand-yellow);
+  font-size: 7rem;
+  font-family: var(--header-font);
+  color: var(--brand-light-yellow);
   opacity: 0.6;
 }
 
@@ -40,7 +40,7 @@
 
 .star {
   font-size: 25rem;
-  color: var(--brand-yellow);
+  color: var(--brand-light-yellow);
   position: relative;
   top: -30rem;
   left: 30rem;
