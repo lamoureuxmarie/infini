@@ -1,6 +1,6 @@
 .about-section {
   padding-top: 25px;
-  background-color: var(--brand-light-yellow);
+  background-color: var(--brand-gray);
   min-height: 100vh;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -29,11 +29,11 @@
 .about-text h3 {
   font-size: 7rem;
   font-family: var(--header-font);
-  color: var(--brand-yellow);
+  color: var(--brand-pink);
 }
 
 .about-text p {
-  color: var(--brand-yellow);
+  color: var(--brand-pink);
   z-index: 1;
   font-weight: 400;
 }
@@ -41,7 +41,7 @@
 .star {
   display: none;
   font-size: 25rem;
-  color: var(--brand-yellow);
+  color: var(--brand-pink);
   position: relative;
   top: -30rem;
   left: 30rem;
