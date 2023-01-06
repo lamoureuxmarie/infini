@@ -2,17 +2,13 @@
 
 class CartLineItemsController < StoreController
   helper 'spree/products', 'orders'
-  include SolidusSubscriptions::SubscriptionLineItemBuilder
 
   respond_to :html
 
   before_action :store_guest_token
 
-  after_action(
-    :handle_subscription_line_items,
-    only: :create,
-    if: -> { params[:subscription_line_item] }
-  )
+  include SolidusSubscriptions::SubscriptionLineItemBuilder
+  after_action :handle_subscription_line_items, only: :create, if: -> { params[:subscription_line_item] }
 
   # Adds a new item to the order (creating a new order if none already exists)
   def create
@@ -21,6 +17,9 @@ class CartLineItemsController < StoreController
 
     variant  = Spree::Variant.find(params[:variant_id])
     quantity = params[:quantity].present? ? params[:quantity].to_i : 1
+    # interval_length = params[:interval_length]
+    # interval_units = params[:interval_units]
+    # subscribable_id = params[:subscribable_id]
     # need to pass all 4 parameters
 
     # 2,147,483,647 is crazy. See issue https://github.com/spree/spree/issues/2695.
@@ -57,7 +56,7 @@ class CartLineItemsController < StoreController
   end
 
   def handle_subscription_line_items
-    line_item = @current_order.line_items.find_by(id: params[:variant_id])
+    line_item = @current_order.line_items.find_by(variant_id: params[:variant_id])
     create_subscription_line_item(line_item)
   end
 end
