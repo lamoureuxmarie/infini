@@ -1,6 +1,6 @@
 .about-section {
   padding-top: 25px;
-  background-color: #C57C07;
+  background-color: var(--brand-light-yellow);
   min-height: 100vh;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -29,21 +29,21 @@
 .about-text h3 {
   font-size: 7rem;
   font-family: var(--header-font);
-  color: var(--brand-light-yellow);
-  opacity: 0.6;
+  color: var(--brand-yellow);
 }
 
 .about-text p {
-  color: #fff;
+  color: var(--brand-yellow);
   z-index: 1;
+  font-weight: 400;
 }
 
 .star {
+  display: none;
   font-size: 25rem;
-  color: var(--brand-light-yellow);
+  color: var(--brand-yellow);
   position: relative;
   top: -30rem;
   left: 30rem;
   margin-bottom: -35rem;
-  opacity: 0.6;
 }
