@@ -127,3 +127,5 @@ gem 'solidus_subscriptions', github: 'solidusio-contrib/solidus_subscriptions'
 
 # Debug
 gem "pry"
+
+gem "sidekiq", "~> 7.0"

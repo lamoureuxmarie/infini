@@ -56,11 +56,7 @@ class CartLineItemsController < StoreController
   end
 
   def handle_subscription_line_items
-    binding.pry
     line_item = @current_order.line_items.find_by(variant_id: params[:variant_id])
     create_subscription_line_item(line_item)
-    # SolidusSubscriptions::LineItem.create!(
-    #   subscription_params.merge(spree_line_item: line_item)
-    # )
   end
 end
